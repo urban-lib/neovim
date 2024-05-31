@@ -6,11 +6,13 @@ install_dependencies() {
     sudo apt upgrade
     sudo apt install -y git wget curl unzip fontconfig
     sudo snap install bash-language-server --classic
-    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+    #curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
     wget -P $HOME/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip
     cd $HOME/.local/share/fonts && unzip JetBrainsMono.zip && rm JetBrainsMono.zip && fc-cache fv
-    chmod u+x nvim.appimage
-    sudo mv nvim.appimage /opt/nvim/nvim
+
+    #curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+    #chmod u+x nvim.appimage
+    #sudo mv nvim.appimage /opt/nvim/nvim
 }
 
 remove_old_nvim ()
@@ -33,6 +35,9 @@ make_new_folder()
 install()
 {
     echo "Install ..."
+    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+    chmod u+x nvim.appimage
+    sudo mv nvim.appimage /opt/nvim/nvim
     ln -s $PWD/lua $HOME/.config/nvim/lua
     ln -s $PWD/init.lua $HOME/.config/nvim/init.lua
     echo "export PATH="$PATH:/opt/nvim/"" >> $HOME/.bashrc 
