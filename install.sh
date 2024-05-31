@@ -33,6 +33,8 @@ install()
     echo "Install ..."
     ln -s $PWD/lua $HOME/.config/nvim/lua
     ln -s $PWD/init.lua $HOME/.config/nvim/init.lua
+    echo "export PATH="$PATH:/opt/nvim/"" >> $HOME/.bashrc 
+    echo "export PATH="$PATH:/opt/nvim/"" >> $HOME/.zshrc
 }
 
 main()
