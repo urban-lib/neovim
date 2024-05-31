@@ -8,7 +8,7 @@ install_dependencies() {
     sudo snap install bash-language-server --classic
     curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
     chmod u+x nvim.appimage
-    mv nvim.appimage /opt/nvim/nvim
+    sudo mv nvim.appimage /opt/nvim/nvim
 }
 
 remove_old_nvim ()
