@@ -4,13 +4,17 @@ install_dependencies() {
     echo "Install dependencies..."
     sudo apt update
     sudo apt upgrade
-    sudo apt install -y git wget curl neovim
+    sudo apt install -y git wget curl
     sudo snap install bash-language-server --classic
+    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+    chmod u+x nvim.appimage
+    mv nvim.appimage /opt/nvim/nvim
 }
 
 remove_old_nvim ()
 {
     echo "Remove old Neovim..."
+    sudo rm -rf /opt/nvim
 	mv $HOME/.config/nvim $HOME/.config/nvim.bak
 	mv $HOME/.cache/nvim $HOME/.cache/nvim.bak
 	mv $HOME/.local/share/nvim $HOME/.local/share/nvim.bak
@@ -21,6 +25,7 @@ make_new_folder()
 {
     echo "Create new directory..."
     mkdir -p $HOME/.config/nvim
+    sudo mkdir -p /opt/nvim
 }
 
 install()
@@ -33,8 +38,8 @@ install()
 main()
 {
     remove_old_nvim
-    install_dependencies
     make_new_folder
+    install_dependencies
     install
     echo "Done!"
 }
