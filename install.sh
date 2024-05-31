@@ -1,5 +1,7 @@
 #!/bin/bash
 
+DIR=$PWD
+
 install_dependencies() {
     echo "Install dependencies..."
     sudo apt update
@@ -38,8 +40,8 @@ install()
     curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
     chmod u+x nvim.appimage
     sudo mv nvim.appimage /opt/nvim/nvim
-    ln -s $PWD/lua $HOME/.config/nvim/lua
-    ln -s $PWD/init.lua $HOME/.config/nvim/init.lua
+    ln -s $DIR/lua $HOME/.config/nvim/lua
+    ln -s $DIR/init.lua $HOME/.config/nvim/init.lua
     echo "export PATH="$PATH:/opt/nvim/"" >> $HOME/.bashrc 
     echo "export PATH="$PATH:/opt/nvim/"" >> $HOME/.zshrc
 }
