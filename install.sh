@@ -26,8 +26,8 @@ make_new_folder()
 install()
 {
     echo "Install ..."
-    ln -s ./lua $HOME/.config/nvim/lua
-    ln -s ./init.lua $HOME/.config/nvim/init.lua
+    ln -s $PWD/lua $HOME/.config/nvim/lua
+    ln -s $PWD/init.lua $HOME/.config/nvim/init.lua
 }
 
 main()
