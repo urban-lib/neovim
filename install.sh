@@ -4,9 +4,11 @@ install_dependencies() {
     echo "Install dependencies..."
     sudo apt update
     sudo apt upgrade
-    sudo apt install -y git wget curl
+    sudo apt install -y git wget curl unzip fontconfig
     sudo snap install bash-language-server --classic
     curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+    wget -P $HOME/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip
+    cd $HOME/.local/share/fonts && unzip JetBrainsMono.zip && rm JetBrainsMono.zip && fc-cache fv
     chmod u+x nvim.appimage
     sudo mv nvim.appimage /opt/nvim/nvim
 }
